@@ -1,9 +1,10 @@
+import Body from './components/Body'
 import './index.css'
 
 const App = () => {
-  return (
-    <div className="text-3xl">App</div>
-  )
+  return <>
+    <Body/>
+  </>
 }
 
 export default App

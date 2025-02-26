@@ -2,6 +2,11 @@
 
 - Created react app
 - configured tailwind css
+- Built header
+  - login form
+  - routing
+  - sign up form
+  - form validation
 
 # Features
 
