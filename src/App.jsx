@@ -1,10 +1,12 @@
+import { Provider } from 'react-redux'
 import Body from './components/Body'
 import './index.css'
+import appStore from './utils/AppStore'
 
 const App = () => {
-  return <>
+  return <Provider store={appStore} >
     <Body/>
-  </>
+  </Provider>
 }
 
 export default App

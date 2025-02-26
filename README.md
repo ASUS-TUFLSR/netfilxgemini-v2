@@ -11,6 +11,11 @@
   - Firebase Setup
   - !Deploying the app to production
   - Create signIn/Up users in firebase
+  - Implemented SignIn user Api
+  - Created Redux Store to manage state of a user
+  - Fixed minor bug in auth
+  - Update profile auth
+  - Implemented Sign Out
 
 # Features
 
@@ -29,3 +34,13 @@
 - Netflix Gpt v2
 - search bar
 - movie suggestions
+
+
+# Tech Stack
+ - HTML/CSS
+ - TailwindCSS
+ - JavaScript
+ - React
+ - FireBaseAuth
+ - Redux/RTK
+ - NodeJs
