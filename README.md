@@ -7,6 +7,10 @@
   - routing
   - sign up form
   - form validation
+  - useRef Hook
+  - Firebase Setup
+  - !Deploying the app to production
+  - Create signIn/Up users in firebase
 
 # Features
 
