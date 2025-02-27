@@ -18,6 +18,8 @@
   - Implemented Sign Out
   - Bugfix : SignUp user displayname and profile update
   - Bugfix : If the user is not logged in  Redirect /browse to Login Page and vice-versa
+  - Unsubscribed to the onAuthStateChange Callback
+  - Added hardcoded values to constants file
 
 # Features
 
