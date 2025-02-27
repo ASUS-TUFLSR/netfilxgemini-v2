@@ -16,6 +16,8 @@
   - Fixed minor bug in auth
   - Update profile auth
   - Implemented Sign Out
+  - Bugfix : SignUp user displayname and profile update
+  - Bugfix : If the user is not logged in  Redirect /browse to Login Page and vice-versa
 
 # Features
 
