@@ -1,8 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { API_OPTIONS } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addTrailerVideo } from "../utils/movieSlice";
 
 const VideoBackground = ({movieId}) => {
   
+  // TO fetch movie trailer we have to ways : use useState to manage and update the state 
+  // Or use our Redux store to store trailer and fetch from the store
+  
+  //const [trailerId, setTrailerId] = useState(null);
+
+    const trailer = useSelector(store => store.movies?.addTrailerVideo);
+    console.log(trailer)
+    const dispatch = useDispatch();
+
   const getMovieVideo = async () => {
      const data = await fetch('https://api.themoviedb.org/3/movie/950396/videos?language=en-US', API_OPTIONS);
     const json = await data.json();
@@ -11,6 +22,11 @@ const VideoBackground = ({movieId}) => {
     const filterData = json.results.filter(video => video.type === 'Trailer');
     const trailer = filterData.length ? filterData[0] : json.results[0];
     console.log(trailer)
+    dispatch(addTrailerVideo(trailer));
+
+   // setTrailerId(trailer.key); // Original
+   // setTrailerId("9t1HyQuo6qo"); // Dark Knight Metamorphosis
+   // setTrailerId("kmJLuwP3MbY"); // Dark Kinght
 
   }
   
@@ -20,16 +36,14 @@ const VideoBackground = ({movieId}) => {
 
   return <div>
    <iframe 
-   width="560" 
-   height="315" 
-   src="https://www.youtube.com/embed/9t1HyQuo6qo?si=bTb1svSYn_c0WxiQ" 
+   src={"https://www.youtube.com/embed/"+trailer?.key} 
    title="YouTube video player" 
-   frameBorder="0" 
    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-   referrerPolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe>
+   referrerPolicy="strict-origin-when-cross-origin" > </iframe>
   </div>
 }
 //kmJLuwP3MbY
+//  src="https://www.youtube.com/embed/9t1HyQuo6qo?si=bTb1svSYn_c0WxiQ" 
 
 export default VideoBackground;
 
