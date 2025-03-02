@@ -29,6 +29,9 @@
   - Updated the store with trailer video
   - Embeded the youtube video and made it autoplay&mute
   - Added to TailwindCSS to UI
+  - Fetched new API from tmbd to diplay in secondary Container
+  - created usePopularMovies in redux store and added fetched api
+  - added .noScrollbar in index.css to hide scroll effect/ui 
 
 # Features
 
