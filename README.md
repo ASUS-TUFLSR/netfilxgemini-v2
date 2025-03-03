@@ -33,6 +33,7 @@
   - created usePopularMovies in redux store and added fetched api
   - added .noScrollbar in index.css to hide scroll effect/ui 
   - GPT search feature
+  - Integrated multi-language functionality
 
 # Features
 
