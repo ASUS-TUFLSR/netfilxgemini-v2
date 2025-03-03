@@ -7,6 +7,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import net from "../assets/netflix.png";
 import { toggleGptSearchView } from "../utils/gptSearchSlice";
 import { SUPPORTED_LANG } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 
 const Header = () => {
@@ -14,19 +15,24 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
+  const gptShowValue = useSelector(store => store.gpt.showGptSearch); 
 
   const handleSignOut = () => {
 
     signOut(auth).then(() => {})
     .catch((error) => {
     navigate("/error")
-    console.log(error)
+   
    });
   }
 
 
   const handleGptSearchClick = () => {
        dispatch(toggleGptSearchView());
+  }
+  
+  const handleLangChange = (e) => {
+        dispatch(changeLanguage(e.target.value))
   }
 
     useEffect(() => {
@@ -50,16 +56,22 @@ const Header = () => {
    <img className="w-44"
    src={net} 
  alt="logo"/>
+
  { user && (
+
   <div className="flex p-2" >
 
-    <select className="px-2 m-2 bg-gray-900 text-white rounded-xs" >
+   { gptShowValue && (<select className="px-2 m-2 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
       {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
-      </select>
+      </select>)
+      }
+
     <button className="py-2 px-4 m-2 text-white bg-transparent cursor-pointer" 
      onClick={handleGptSearchClick}
-    >GPT-Search
+    >
+     {gptShowValue ? "Home-Page" : "GPT-Search"}
     </button> 
+
     <img  className="w-12 h-12" src={user?.photoURL} alt="usericon"/>
     <button onClick={handleSignOut} className="font-bold text-white" >SignOut</button>
    </div>

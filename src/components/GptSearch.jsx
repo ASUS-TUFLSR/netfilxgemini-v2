@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import GptSearchBar from './GptSearchBar'
 import GptMovieSuggestion from './GptMovieSuggestion'
 import { NET_BACK } from '../utils/constants'

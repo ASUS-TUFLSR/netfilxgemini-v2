@@ -6,7 +6,7 @@ const SecondaryContainer = () => {
  
  
   const movies = useSelector(store => store.movies) 
-  console.log(movies)
+  
 
  return <div className=" bg-black" >
        <div className="-mt-50 relative z-2" >
