@@ -32,6 +32,7 @@
   - Fetched new API from tmbd to diplay in secondary Container
   - created usePopularMovies in redux store and added fetched api
   - added .noScrollbar in index.css to hide scroll effect/ui 
+  - GPT search feature
 
 # Features
 
