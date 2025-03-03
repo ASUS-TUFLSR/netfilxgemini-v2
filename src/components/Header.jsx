@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import net from "../assets/netflix.png";
 import { toggleGptSearchView } from "../utils/gptSearchSlice";
+import { SUPPORTED_LANG } from "../utils/constants";
 
 
 const Header = () => {
@@ -51,6 +52,10 @@ const Header = () => {
  alt="logo"/>
  { user && (
   <div className="flex p-2" >
+
+    <select className="px-2 m-2 bg-gray-900 text-white rounded-xs" >
+      {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+      </select>
     <button className="py-2 px-4 m-2 text-white bg-transparent cursor-pointer" 
      onClick={handleGptSearchClick}
     >GPT-Search
