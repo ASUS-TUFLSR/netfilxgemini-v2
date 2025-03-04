@@ -16,6 +16,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const gptShowValue = useSelector(store => store.gpt.showGptSearch); 
+  // we are accessing the showgpt component value
 
   const handleSignOut = () => {
 

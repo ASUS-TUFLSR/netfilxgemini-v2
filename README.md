@@ -1,4 +1,4 @@
-# React + Vite netfilx-gpt
+# React + Vite netfilx-gemini
 
 - Created react app
 - configured tailwind css
@@ -36,6 +36,18 @@
   - Integrated multi-language functionality
   - created OpenAi key and added it to .env file
   - use VITE_ for adding .env variables for project initialized with vite@
+  - Change of plans, now will use Google's GEMINI API KEY 
+  - OPENAI key had usage issue better alternative is GEMINI
+  - Created a backend folder and server.js file to store and post the query/question 
+  - Ditched OPEN_AI, now will use GEMINI_AI
+  - Frontend (React + Vite): Handles UI interactions.
+  - Backend (server.js): Manages API calls, security, and interactions with external services (like Gemini API).
+  - React cannot directly call Gemini API because it exposes your API key in the browser (security risk).
+  - server.js allows us to keep the API key hidden and make API calls safely.
+  - If you call Gemini API directly from React, Google blocks it due to CORS restrictions.
+  - A backend (server.js) proxies the request, preventing CORS errors.
+  - The backend lets us log errors properly and return meaningful messages.
+  - If we need to add user authentication, databases, or other services, it’s easier to expand in server.js.
 
 # Features
 

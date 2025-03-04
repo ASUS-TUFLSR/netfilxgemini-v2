@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useSelector } from 'react-redux'
-import openai from '../utils/openAi'
 
 
 
@@ -12,16 +11,21 @@ const GptSearchBar = () => {
   const searchText = useRef(null);
 
   const handleGptSearchClick = async () => {
-        console.log(searchText.current.value);
 
-        const gptResult = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: 'Say this is a test' }],
-    model: 'gpt-4o',
-  });
+    const response = await fetch("http://localhost:5000/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: searchText.current.value }),
+    });
 
-    console.log(gptResult.choices)
+    const data = await response.json();
+    console.log(data); // ✅ Log response from Gemini
 
+ 
   }
+
+
+
   
   return (
     <div className='pt-[10%] flex justify-center' >

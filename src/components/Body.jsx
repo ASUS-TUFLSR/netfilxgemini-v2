@@ -8,6 +8,7 @@ import { RouterProvider } from "react-router-dom"
 
 const Body = () => {
 // Use your hooks at the top level
+// Our body contains our routes and main container
 
   const appRouter = createBrowserRouter([
     {
