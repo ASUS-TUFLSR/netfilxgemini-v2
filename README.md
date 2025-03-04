@@ -34,6 +34,8 @@
   - added .noScrollbar in index.css to hide scroll effect/ui 
   - GPT search feature
   - Integrated multi-language functionality
+  - created OpenAi key and added it to .env file
+  - use VITE_ for adding .env variables for project initialized with vite@
 
 # Features
 
