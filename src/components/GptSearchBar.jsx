@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from 'react'
 import lang from '../utils/languageConstants'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { API_OPTIONS } from '../utils/constants'
+import { addGeminiMovieResult } from '../utils/gptSearchSlice'
 
 
 
 const GptSearchBar = () => {
 
   const langKey = useSelector(store => store.config.lang)
+
+  const dispatch = useDispatch();
 
   const searchText = useRef(null);
 
@@ -35,17 +38,14 @@ const GptSearchBar = () => {
     const data = await response.json();
    
 
-    const geminiMovieRessult = data.message.split(",") // creating an array with collected data
+    const geminiMovieRessult = data?.message?.split(",") // creating an array with collected data
     console.log(geminiMovieRessult);  // ✅ Log response from Gemini
 
     const promiseArray = geminiMovieRessult.map((movie) => searchMovieTMDB(movie));
-    // The code generates promises because what we are doing is we are mapping
-    // through our gemini-ai generated movie list are we are calling
-    // TMDB api with each of movies and it take some time to execute a request
-    // The above promiseArray will generate 5 promises then we'll wait for all the promises to complete
 
     const tmdbResults = await Promise.all(promiseArray);
     console.log(tmdbResults)
+    dispatch(addGeminiMovieResult({movieNames:geminiMovieRessult,tmdbResults}));
  
   }
 
