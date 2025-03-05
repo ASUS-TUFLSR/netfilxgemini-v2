@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "start": "concurrently \"npm run server\" \"npm run client\"",
+  "server": "cd backend && nodemon server.js",
+  "client": "vite",
+  "build": "vite build",
+  "serve": "vite preview",
+  "prod": "npm run build && npm run server"
   },
   "dependencies": {
     "@google/generative-ai": "^0.23.0",
@@ -32,6 +34,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",

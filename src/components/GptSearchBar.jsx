@@ -12,14 +12,22 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
 
+    const geminiQuery = "Act as a movie Recommendation system and suggest some movies for the query " + 
+                         searchText.current.value + 
+                        ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Fight Club, GodFather, The Dark Knight, Interstellar, Inception";
+
     const response = await fetch("http://localhost:5000/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: searchText.current.value }),
+        body: JSON.stringify({ prompt: geminiQuery }),
     });
 
     const data = await response.json();
-    console.log(data); // ✅ Log response from Gemini
+    console.log(data.message); // ✅ Log response from Gemini
+
+    const geminiMovieRessult = data.message.split(",")
+    console.log(geminiMovieRessult)
+    console.log(geminiMovieRessult[2])
 
  
   }

@@ -48,6 +48,7 @@
   - A backend (server.js) proxies the request, preventing CORS errors.
   - The backend lets us log errors properly and return meaningful messages.
   - If we need to add user authentication, databases, or other services, it’s easier to expand in server.js.
+  - Installed Concurrently to run both frontend & backend simultaneously
 
 # Features
 
