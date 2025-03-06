@@ -39,12 +39,12 @@ const GeminiSearchBar = () => {
    
 
     const geminiMovieResult = data?.message?.split(",") // creating an array with collected data
-    console.log(geminiMovieResult);  // ✅ Log response from Gemini
+      // ✅ Log response from Gemini
 
     const promiseArray = geminiMovieResult.map((movie) => searchMovieTMDB(movie));
 
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults)
+    
     dispatch(addGeminiMovieResult({movieNames: geminiMovieResult, movieResults: tmdbResults}));
  
   }

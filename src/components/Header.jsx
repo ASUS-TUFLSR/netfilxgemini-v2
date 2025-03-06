@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import net from "../assets/netflix.png";
 import { toggleGeminiSearchView } from "../utils/geminiSearchSlice";
-import { SUPPORTED_LANG } from "../utils/constants";
+import { NETFLIX_LOGO, SUPPORTED_LANG } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
 
 
@@ -55,7 +54,7 @@ const Header = () => {
   <div 
   className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between" >
    <img className="w-44"
-   src={net} 
+   src={NETFLIX_LOGO} 
  alt="logo"/>
 
  { user && (
