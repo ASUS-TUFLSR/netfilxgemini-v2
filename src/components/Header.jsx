@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import net from "../assets/netflix.png";
-import { toggleGptSearchView } from "../utils/gptSearchSlice";
+import { toggleGeminiSearchView } from "../utils/geminiSearchSlice";
 import { SUPPORTED_LANG } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
 
@@ -15,7 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
-  const gptShowValue = useSelector(store => store.gpt.showGptSearch); 
+  const geminiShowValue = useSelector((store) => store.gemini.showGeminiSearch); 
   // we are accessing the showgpt component value
 
   const handleSignOut = () => {
@@ -29,7 +29,7 @@ const Header = () => {
 
 
   const handleGptSearchClick = () => {
-       dispatch(toggleGptSearchView());
+       dispatch(toggleGeminiSearchView());
   }
   
   const handleLangChange = (e) => {
@@ -62,7 +62,7 @@ const Header = () => {
 
   <div className="flex p-2" >
 
-   { gptShowValue && (<select className="px-2 m-2 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
+   { geminiShowValue && (<select className="px-2 m-2 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
       {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
       </select>)
       }
@@ -70,7 +70,7 @@ const Header = () => {
     <button className="py-2 px-4 m-2 text-white bg-transparent cursor-pointer" 
      onClick={handleGptSearchClick}
     >
-     {gptShowValue ? "Home-Page" : "GPT-Search"}
+     {geminiShowValue ? "Home-Page" : "Gemini-Search"}
     </button> 
 
     <img  className="w-12 h-12" src={user?.photoURL} alt="usericon"/>

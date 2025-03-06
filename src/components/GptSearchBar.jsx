@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import { API_OPTIONS } from '../utils/constants'
-import { addGeminiMovieResult } from '../utils/gptSearchSlice'
+import { addGeminiMovieResult } from '../utils/geminiSearchSlice'
 
 
 
@@ -45,7 +45,7 @@ const GptSearchBar = () => {
 
     const tmdbResults = await Promise.all(promiseArray);
     console.log(tmdbResults)
-    dispatch(addGeminiMovieResult({movieNames:geminiMovieRessult,tmdbResults}));
+    dispatch(addGeminiMovieResult({movieNames: geminiMovieRessult, movieResults: tmdbResults}));
  
   }
 

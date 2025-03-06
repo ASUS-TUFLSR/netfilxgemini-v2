@@ -12,7 +12,7 @@ import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
   
-  const showGptSearchView = useSelector(store => store.gpt.showGptSearch);
+  const showGeminiSearchView = useSelector(store => store.gemini.showGeminiSearch);
   // Above is the gptFeature that we created which will change to gemini search after this commit
   
   useNowPlayingMovies();
@@ -25,7 +25,7 @@ const Browse = () => {
   return <>
     <Header/>
     {
-      showGptSearchView ? (
+      showGeminiSearchView ? (
       <GptSearch/>
       ) : (
          <>  <MainContainer/>
