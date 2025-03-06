@@ -6,7 +6,7 @@ import { addGeminiMovieResult } from '../utils/geminiSearchSlice'
 
 
 
-const GptSearchBar = () => {
+const GeminiSearchBar = () => {
 
   const langKey = useSelector(store => store.config.lang)
 
@@ -23,7 +23,7 @@ const GptSearchBar = () => {
   }
 
 
-  const handleGptSearchClick = async () => {
+  const handleGeminiSearchClick = async () => {
 
     const geminiQuery = "Act as a movie Recommendation system and suggest some movies for the query " + 
                          searchText.current.value + 
@@ -38,14 +38,14 @@ const GptSearchBar = () => {
     const data = await response.json();
    
 
-    const geminiMovieRessult = data?.message?.split(",") // creating an array with collected data
-    console.log(geminiMovieRessult);  // ✅ Log response from Gemini
+    const geminiMovieResult = data?.message?.split(",") // creating an array with collected data
+    console.log(geminiMovieResult);  // ✅ Log response from Gemini
 
-    const promiseArray = geminiMovieRessult.map((movie) => searchMovieTMDB(movie));
+    const promiseArray = geminiMovieResult.map((movie) => searchMovieTMDB(movie));
 
     const tmdbResults = await Promise.all(promiseArray);
     console.log(tmdbResults)
-    dispatch(addGeminiMovieResult({movieNames: geminiMovieRessult, movieResults: tmdbResults}));
+    dispatch(addGeminiMovieResult({movieNames: geminiMovieResult, movieResults: tmdbResults}));
  
   }
 
@@ -58,7 +58,7 @@ const GptSearchBar = () => {
                    placeholder={lang[langKey].gptSearchPlaceholder}
                    />
             <button className='col-span-3 px-6 py-2 m-4 cursor-pointer bg-red-700 rounded-xs text-white' 
-                    onClick={handleGptSearchClick}
+                    onClick={handleGeminiSearchClick}
             >
                 {lang[langKey].search}
             </button>
@@ -67,4 +67,4 @@ const GptSearchBar = () => {
   )
 }
 
-export default GptSearchBar
+export default GeminiSearchBar

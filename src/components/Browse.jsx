@@ -4,7 +4,7 @@ import usePopularMovies from "../hooks/usePopularMovies";
 import useTopRatedSeries from "../hooks/useTopRatedSeries";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import GptSearch from "./GptSearch";
+import GeminiSearch from "./GeminiSearch";
 import Header from "./Header"
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
@@ -26,7 +26,7 @@ const Browse = () => {
     <Header/>
     {
       showGeminiSearchView ? (
-      <GptSearch/>
+      <GeminiSearch/>
       ) : (
          <>  <MainContainer/>
              <SecondaryContainer/> </>
