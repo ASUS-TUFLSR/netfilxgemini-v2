@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import fetch from "node-fetch"; // Ensure you have node-fetch installed
 
 
 dotenv.config();

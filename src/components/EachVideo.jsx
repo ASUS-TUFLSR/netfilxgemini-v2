@@ -6,6 +6,9 @@ import VideoBackground from "./VideoBackground";
 const EachVideo = () => {
   const location = useLocation();
   const movie = location.state?.movie; // Get movie data
+ 
+
+   if (!movie) return <p>No movie selected</p>;
 
   return (
     <div>
