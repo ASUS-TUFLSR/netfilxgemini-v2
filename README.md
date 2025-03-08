@@ -49,6 +49,9 @@
   - The backend lets us log errors properly and return meaningful messages.
   - If we need to add user authentication, databases, or other services, it’s easier to expand in server.js.
   - Installed Concurrently to run both frontend & backend simultaneously
+  - Used concept of memoization to avoid unnecessary API-Calls slowind down server
+  - fetched the movies data from redux store which was initially null and used async-await inside useEffect(); for better api-calling
+  - 
 
 # Features
 

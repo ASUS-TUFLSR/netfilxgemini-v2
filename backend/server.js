@@ -9,6 +9,7 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+const PORT = process.env.PORT || 5001; 
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY); // Use Gemini API Key
 
@@ -51,4 +52,4 @@ app.post("/api/generate", async (req, res) => {
 // The above get request is to check the gemini version we are using. to check version  => http://localhost:5000/api/models
 
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
