@@ -3,6 +3,7 @@ import Browse from "./Browse"
 import Login from "./Login"
 import EachVideo from "./EachVideo"
 import { RouterProvider } from "react-router-dom"
+import ErrorPage from "./ErrorPage"
 
 
 
@@ -24,6 +25,10 @@ const Body = () => {
       path:"/vid",
       element: <EachVideo/>
     }, 
+    {
+      path:"/error",
+      element: <ErrorPage/>
+    }
   ])
 
 

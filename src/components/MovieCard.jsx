@@ -6,8 +6,6 @@ const MovieCard = ({posterPath, moviesData}) => {
 
  const navigate = useNavigate();
  
-
-
   const handleShowTrailer = () => {
         navigate("/vid", { state: { movie: moviesData } })
   }

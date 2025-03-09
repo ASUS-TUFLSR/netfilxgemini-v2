@@ -51,7 +51,10 @@
   - Installed Concurrently to run both frontend & backend simultaneously
   - Used concept of memoization to avoid unnecessary API-Calls slowind down server
   - fetched the movies data from redux store which was initially null and used async-await inside useEffect(); for better api-calling
-  - 
+  - Created a error page for trailer if !trailer then simply redirect to Error Page
+  - Add back button in "/vid" for error handling 
+  - with return back button we solved our unmounting and mounting of our default trailer
+  - Back on making it mobile compatible with some minor changes
 
 # Features
 
