@@ -10,9 +10,8 @@ const MovieCard = ({posterPath, moviesData}) => {
         navigate("/vid", { state: { movie: moviesData } })
   }
 
-  // navigate to different component with a onClick function or jsx
   if(!posterPath) return null;
-  return <div className="w-48 mr-4 cursor-pointer" onClick={handleShowTrailer}>
+  return <div className="w-36 md:w-48 mr-4 cursor-pointer" onClick={handleShowTrailer}>
      <img  alt="MovieCard" src={IMG_CDN + posterPath}/>
   </div>
 }

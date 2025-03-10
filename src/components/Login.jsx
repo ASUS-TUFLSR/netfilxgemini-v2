@@ -25,7 +25,7 @@ const Login = () => {
 
   const handleButtonClick = () => {
 
-    //add name validation
+    
     const message =  checkValidateData(email.current.value, password.current.value);
     setErrorMessage(message);
     if(message) return;
@@ -83,7 +83,7 @@ const Login = () => {
   return <div>
     <Header/>
      <div className="absolute" >
-       <img src={NET_BACK}
+       <img src={NET_BACK} className="h-screen object-cover md:h-auto"
         alt="net-back" />
      </div>
 

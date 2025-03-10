@@ -27,17 +27,15 @@ const useTrailerVideo = (movieId) => {
 
      } catch (error) {
       console.error("Error fetching movie trailer:", error)
-      navigate('/error') // Redirect to error page on API failure
+      navigate('/error')
    }
    
-    // if not trailer then present or show an error
-    // new error there are some components such as anime which is not present in tmdb api 
-    // gotta show an error
+ 
 
 }
   
    useEffect(() => {
-    if (!movieId) return;  // Prevent unnecessary API calls
+    if (!movieId) return; 
     getMovieVideo();
   }, [movieId, dispatch]);
 

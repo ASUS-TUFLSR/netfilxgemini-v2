@@ -6,7 +6,6 @@ import { addNowPlayingMoives } from "../utils/movieSlice";
 
 const useNowPlayingMovies = () => {
 
-  //Fetching Data From TMDB API and updating the store
     
   const nowPlayingMovies = useSelector((store) => store.movies.nowPlayingMovies);
 

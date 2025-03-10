@@ -1,0 +1,22 @@
+{
+  "name": "netflix-gemini-v2",
+  "version": "2.0.0",
+  "description": "niche-website like netflix made with react and tmdb api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "ISC"
+  ],
+  "author": "ManmitPal-ASUS_TUF",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+ 
+}

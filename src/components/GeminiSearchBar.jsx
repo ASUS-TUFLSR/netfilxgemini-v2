@@ -29,17 +29,17 @@ const GeminiSearchBar = () => {
                          searchText.current.value + 
                         ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Fight Club, GodFather, The Dark Knight, Interstellar, Inception";
 
-    const response = await fetch("http://localhost:5001/api/generate", {
+    const response = await fetch("http://localhost:5000/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: geminiQuery }),
     });
 
     const data = await response.json();
+    // add the port 
    
 
-    const geminiMovieResult = data?.message?.split(",") // creating an array with collected data
-      // ✅ Log response from Gemini
+    const geminiMovieResult = data?.message?.split(",") 
 
     const promiseArray = geminiMovieResult.map((movie) => searchMovieTMDB(movie));
 
@@ -50,14 +50,14 @@ const GeminiSearchBar = () => {
   }
 
   return (
-    <div className='pt-[10%] flex justify-center' >
+    <div className='pt-[40%] md:pt-[10%] flex justify-center' >
         
-        <form className=' bg-black w-1/2 grid grid-cols-12' onSubmit={(e) => e.preventDefault()} >
+        <form className='w-full md:w-1/2 bg-black grid grid-cols-12' onSubmit={(e) => e.preventDefault()} >
             <input type='text' ref={searchText}
                    className='p-4 m-4 bg-white col-span-9' 
                    placeholder={lang[langKey].gptSearchPlaceholder}
                    />
-            <button className='col-span-3 px-6 py-2 m-4 cursor-pointer bg-red-700 rounded-xs text-white' 
+            <button className='col-span-3 md:px-6 py-2 m-4 cursor-pointer bg-red-700 rounded-xs text-white' 
                     onClick={handleGeminiSearchClick}
             >
                 {lang[langKey].search}

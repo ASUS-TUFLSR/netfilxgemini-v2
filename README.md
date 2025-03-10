@@ -1,4 +1,4 @@
-# React + Vite netfilx-gemini
+# React + Vite netflix-gemini
 
 - Created react app
 - configured tailwind css
@@ -17,10 +17,10 @@
   - Update profile auth
   - Implemented Sign Out
   - Bugfix : SignUp user displayname and profile update
-  - Bugfix : If the user is not logged in  Redirect /browse to Login Page and vice-versa
+  - Bugfix : If the user is not logged in Redirect /browse to Login Page and vice-versa
   - Unsubscribed to the onAuthStateChange Callback
   - Added hardcoded values to constants file
-  - Registered TMDB API & created an app to get access token 
+  - Registered TMDB API & created an app to get access token
   - Get Data from Now-Playing movies list api from api-reference
   - Created custom hooks for now playing movies
   - Updated the store(slice) with movie data
@@ -31,14 +31,14 @@
   - Added to TailwindCSS to UI
   - Fetched new API from tmbd to diplay in secondary Container
   - created usePopularMovies in redux store and added fetched api
-  - added .noScrollbar in index.css to hide scroll effect/ui 
+  - added .noScrollbar in index.css to hide scroll effect/ui
   - GPT search feature
   - Integrated multi-language functionality
   - created OpenAi key and added it to .env file
-  - use VITE_ for adding .env variables for project initialized with vite@
-  - Change of plans, now will use Google's GEMINI API KEY 
+  - use VITE\_ for adding .env variables for project initialized with vite@
+  - Change of plans, now will use Google's GEMINI API KEY
   - OPENAI key had usage issue better alternative is GEMINI
-  - Created a backend folder and server.js file to store and post the query/question 
+  - Created a backend folder and server.js file to store and post the query/question
   - Ditched OPEN_AI, now will use GEMINI_AI
   - Frontend (React + Vite): Handles UI interactions.
   - Backend (server.js): Manages API calls, security, and interactions with external services (like Gemini API).
@@ -52,9 +52,15 @@
   - Used concept of memoization to avoid unnecessary API-Calls slowind down server
   - fetched the movies data from redux store which was initially null and used async-await inside useEffect(); for better api-calling
   - Created a error page for trailer if !trailer then simply redirect to Error Page
-  - Add back button in "/vid" for error handling 
+  - Add back button in "/vid" for error handling
   - with return back button we solved our unmounting and mounting of our default trailer
   - Back on making it mobile compatible with some minor changes
+  - Netflix-Gemini-v2 is now mobile compatible with many features
+  - Reused many components in different components
+  - Created a NoPlay component which will handle, when user clicks on play button it redirects to "/noPlay" page
+  - Created a package.json folder in backend folder to save backend dependencies
+  - There are still many components that can be upgraded or can make it better for ui
+  - Added netflix favicon and changed name from vite+react to netflix-gemini-v2
 
 # Features
 
@@ -70,16 +76,16 @@
     - Movie Suggesstion more like a carousels
       - MovieList + N
 
-- Netflix Gpt v2
+- Netflix Gemini v2
 - search bar
 - movie suggestions
 
-
 # Tech Stack
- - HTML/CSS
- - TailwindCSS
- - JavaScript
- - React
- - FireBaseAuth
- - Redux/RTK
- - NodeJs
+
+- HTML/CSS
+- TailwindCSS
+- JavaScript
+- React
+- FireBaseAuth
+- Redux/RTK
+- NodeJs

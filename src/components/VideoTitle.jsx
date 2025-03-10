@@ -1,20 +1,25 @@
 import { IoIosInformationCircleOutline, IoIosPlay } from "react-icons/io"
+import { useNavigate } from "react-router-dom"
 
 const VideoTitle = ({title, overview}) => {
 
- 
-  return <div className="w-screen aspect-video  pt-50 px-24 absolute text-white bg-gradient-to-r from-black" >
-    <h1 className="text-4xl font-bold" >{title}</h1>
-    <p className="py-6 text-2xs w-1/2" >{overview}</p>
-    <div className="flex" >
-   
+  const navigate = useNavigate();
 
-      {/* {On the play button add a handle click event on click if that event simply redirect to a new page } */}
-      <button  style={{display: "flex", justifyContent: "center"}} className="bg-white text-black cursor-pointer p-2 px-9 text-xl hover:opacity-50">
-        <IoIosPlay size={29} className="align-bottom" />Play
+  const handlePlayError = () => {
+        navigate('/noPlay');
+  }
+ 
+  return <div className="w-screen aspect-video  pt-[20%] md:pt-50 px-6 md:px-24 absolute text-white bg-gradient-to-r from-black" >
+    <h1 className="text-2xl md:text-4xl font-bold" >{title}</h1>
+    <p className="hidden md:inline-block py-6 text-2xs w-1/2" >{overview}</p>
+    <div className="flex" >
+      <button className="flex items-center bg-white text-black cursor-pointer py-2 px-6 text-lg hover:opacity-80 rounded-md"
+       onClick={handlePlayError}
+      >
+        <IoIosPlay size={24} className="mr-2" />Play
         </button>
-      <button style={{display: "flex", justifyContent: "center"}} className="bg-gray-500 text-white cursor-pointer p-2 px-9 text-xl opacity-90 mx-2" >
-        <IoIosInformationCircleOutline size={29} className="align-bottom" />MoreInfo
+      <button className="hidden md:flex items-center bg-gray-600 text-white cursor-pointer py-2 px-6 text-lg opacity-90 rounded-md hover:bg-gray-700 ml-1" >
+        <IoIosInformationCircleOutline size={24} className="mr-2" />MoreInfo
         </button>
          
     </div>

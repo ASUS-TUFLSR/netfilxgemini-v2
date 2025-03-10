@@ -15,7 +15,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const geminiShowValue = useSelector((store) => store.gemini.showGeminiSearch); 
-  // we are accessing the showgpt component value
+
 
   const handleSignOut = () => {
 
@@ -46,22 +46,22 @@ const Header = () => {
       navigate('/');
      }
    });
-   // Unsubscribe when component unmounts
+   
    return () => unsubscribe();
   }, [])
-
+ 
   return (
   <div 
-  className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between" >
-   <img className="w-44"
+  className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row md:justify-between " >
+   <img className="w-44 mx-auto md:mx-0"
    src={NETFLIX_LOGO} 
  alt="logo"/>
 
  { user && (
 
-  <div className="flex p-2" >
+  <div className="flex p-2 justify-between" >
 
-   { geminiShowValue && (<select className="px-2 m-2 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
+   { geminiShowValue && (<select className="md:px-3 m-3 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
       {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
       </select>)
       }
@@ -69,11 +69,11 @@ const Header = () => {
     <button className="py-2 px-4 m-2 text-white bg-transparent cursor-pointer" 
      onClick={handleGptSearchClick}
     >
-     {geminiShowValue ? "Home-Page" : "Gemini-Search"}
+     {geminiShowValue ? "HomePage" : "GeminiSearch"}
     </button> 
 
-    <img  className="w-12 h-12" src={user?.photoURL} alt="usericon"/>
-    <button onClick={handleSignOut} className="font-bold text-white" >SignOut</button>
+    <img  className="hidden md:block w-12 h-12" src={user?.photoURL} alt="usericon"/>
+    <button onClick={handleSignOut} className="font-bold px-2 md:px-2 text-white" >SignOut</button>
    </div>
   )}
   </div>

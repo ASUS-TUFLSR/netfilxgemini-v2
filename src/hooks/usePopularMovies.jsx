@@ -6,7 +6,6 @@ import { addPopularMoives } from "../utils/movieSlice";
 
 const usePopularMovies = () => {
 
-  //Fetching Data From TMDB API and updating the store
   const popularMovies = useSelector((store) => store?.movies?.popularMovies);
 
   const dispatch = useDispatch();

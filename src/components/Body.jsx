@@ -1,16 +1,14 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter, createHashRouter } from "react-router-dom"
 import Browse from "./Browse"
 import Login from "./Login"
 import EachVideo from "./EachVideo"
 import { RouterProvider } from "react-router-dom"
 import ErrorPage from "./ErrorPage"
-
-
+import NoPlay from "./noPlay"
 
 
 const Body = () => {
-// Use your hooks at the top level
-// Our body contains our routes and main container
+
 
   const appRouter = createBrowserRouter([
     {
@@ -28,7 +26,12 @@ const Body = () => {
     {
       path:"/error",
       element: <ErrorPage/>
+    },
+    {
+      path:"/noPlay",
+      element: <NoPlay/>
     }
+   
   ])
 
 
