@@ -56,12 +56,12 @@ const GeminiSearchBar = () => {
   return (
     <div className='pt-[40%] md:pt-[10%] flex justify-center' >
         
-        <form className='w-full md:w-1/2 bg-black grid grid-cols-12' onSubmit={(e) => e.preventDefault()} >
+        <form className='w-full px-1 md:px-2 md:w-1/2 bg-black grid grid-cols-12' onSubmit={(e) => e.preventDefault()} >
             <input type='text' ref={searchText}
                    className='p-4 m-4 bg-white col-span-9' 
                    placeholder={lang[langKey].gptSearchPlaceholder}
                    />
-            <button className='col-span-3 md:px-6 py-2 m-4 cursor-pointer bg-red-700 rounded-xs text-white' 
+            <button className='col-span-3 px-3 md:px-6 md:py-2 m-4 cursor-pointer  bg-red-700 rounded-xs text-white' 
                     onClick={handleGeminiSearchClick}
             >
                 {lang[langKey].search}

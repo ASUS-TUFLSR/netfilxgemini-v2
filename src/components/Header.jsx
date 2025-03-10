@@ -61,7 +61,7 @@ const Header = () => {
 
   <div className="flex p-2 justify-between" >
 
-   { geminiShowValue && (<select className="md:px-3 m-3 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
+   { geminiShowValue && (<select className="px-2 md:px-3 m-3 bg-gray-900 text-white rounded-xs" onChange={handleLangChange}  >
       {SUPPORTED_LANG.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
       </select>)
       }
@@ -73,7 +73,7 @@ const Header = () => {
     </button> 
 
     <img  className="hidden md:block w-12 h-12" src={user?.photoURL} alt="usericon"/>
-    <button onClick={handleSignOut} className="font-bold px-2 md:px-2 text-white" >SignOut</button>
+    <button onClick={handleSignOut} className="font-bold px-3 md:px-2  text-white" >SignOut</button>
    </div>
   )}
   </div>

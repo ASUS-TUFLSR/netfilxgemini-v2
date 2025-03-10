@@ -10,11 +10,11 @@ const EachVideo = () => {
    if (!movie) return <p>No movie selected</p>;
 
   return (
-     <div className="relative min-h-screen bg-black text-white p-4 ">
+     <div className="relative min-h-screen bg-black  text-white p-4 ">
       <div className="flex">
         <Link
           to="/browse"
-          className="px-6 md:px-9 py-2 mt-2 md:ml-25 bg-red-700 hover:bg-red-900 cursor-pointer rounded-xs text-white inline-block"
+          className="mt-[59%] px-4 py-1 md:px-9 md:py-2 md:mt-2 md:ml-25 bg-red-700 hover:bg-red-900 cursor-pointer rounded-xs text-white inline-block"
         >
           Go Back
         </Link>
