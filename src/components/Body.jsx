@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom"
 import Browse from "./Browse"
 import Login from "./Login"
 import EachVideo from "./EachVideo"
@@ -10,7 +10,7 @@ import NoPlay from "./NoPlay"
 const Body = () => {
 
 
-  const appRouter = createHashRouter([
+  const appRouter = createBrowserRouter([
     {
       path:"/",
       element: <Login/>
