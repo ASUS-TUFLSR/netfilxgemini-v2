@@ -61,6 +61,8 @@
   - Created a package.json folder in backend folder to save backend dependencies
   - There are still many components that can be upgraded or can make it better for ui
   - Added netflix favicon and changed name from vite+react to netflix-gemini-v2
+  - created a vercel.json file for 404 not found error issue 
+  - muted the trailer and some more ui changes
 
 # Features
 
