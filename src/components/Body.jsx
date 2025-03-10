@@ -4,13 +4,13 @@ import Login from "./Login"
 import EachVideo from "./EachVideo"
 import { RouterProvider } from "react-router-dom"
 import ErrorPage from "./ErrorPage"
-import NoPlay from "./noPlay"
+import NoPlay from "./NoPlay"
 
 
 const Body = () => {
 
 
-  const appRouter = createBrowserRouter([
+  const appRouter = createHashRouter([
     {
       path:"/",
       element: <Login/>
