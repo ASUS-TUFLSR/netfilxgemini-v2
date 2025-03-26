@@ -82,8 +82,8 @@ const GeminiSearchBar = () => {
           />
           
           <button
-            className={`flex items-center justify-center px-5 md:px-6 h-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all ${
-              loading ? 'w-16' : 'w-24 md:w-28'
+            className={`flex items-center justify-center mr-11 p-5 md:p-3  h-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all ${
+              loading ? 'w-18' : 'w-24 md:w-28'
             }`}
             onClick={handleGeminiSearchClick}
             disabled={loading}
