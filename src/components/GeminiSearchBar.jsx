@@ -60,45 +60,22 @@ const GeminiSearchBar = () => {
 
 
   return (
-      <div className="flex justify-center items-center px-4 h-[40vh] md:h-[50vh]"> {/* Changed height */}
-      <div className="w-full max-w-2xl md:max-w-3xl space-y-4">
-  
-
-        <div className={`relative flex mt-30 items-center px-5 transition-all duration-300 ${
-          isFocused ? ' ring-red-500 shadow-lg' : 'shadow-md'
-        } bg-black/90 backdrop-blur-sm rounded-xl overflow-hidden mt-4`}>
-          <div className="absolute  text-gray-400">
-            <Search className="w-5 h-5" />
-          </div>
-          
-          <input
-            type="text"
-            ref={searchText}
-            className="flex-1 py-4 pl-12 pr-4 text-white bg-transparent placeholder-gray-400 focus:outline-none text-base md:text-lg"
-            placeholder={lang[langKey].gptSearchPlaceholder || "Search for movies like..."}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            onKeyDown={(e) => e.key === 'Enter' && handleGeminiSearchClick()}
-          />
-          
-          <button
-            className={`flex items-center justify-center mr-11 p-5 md:p-3  h-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all ${
-              loading ? 'w-18' : 'w-24 md:w-28'
-            }`}
-            onClick={handleGeminiSearchClick}
-            disabled={loading}
-          >
-            {loading ? (
-              <Loader2 className="w-5 h-5 animate-spin text-white" />
-            ) : (
-              <span className="text-white font-medium">
-                {lang[langKey].search || "Search"}
-              </span>
-            )}
-          </button>
-        </div>
-      </div>
-    </div>
+      <div className='pt-[40%] md:pt-[10%] flex justify-center' >
+ 
+         
+         <form className='w-full md:w-1/2 bg-black grid grid-cols-12' onSubmit={(e) => e.preventDefault()} >
+             <input type='text' ref={searchText}
+                    className='p-4 m-4 bg-white col-span-9' 
+                    placeholder={lang[langKey].gptSearchPlaceholder}
+                    />
+            
+             <button className='col-span-3 md:px-6 py-2 m-4 cursor-pointer  bg-red-700 rounded-xs text-white' 
+                     onClick={handleGeminiSearchClick}
+             >
+                 {lang[langKey].search}
+             </button>
+         </form>
+     </div>
   );
 };
 
