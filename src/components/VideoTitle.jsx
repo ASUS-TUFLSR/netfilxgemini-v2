@@ -19,7 +19,7 @@ const VideoTitle = ({title, overview}) => {
       <IoIosPlay size={16} className="md:hidden" />
         <IoIosPlay size={24} className="hidden md:inline-block mr-2" />Play
         </button>
-      <button className="hidden md:flex items-center bg-gray-600 text-white cursor-pointer py-2 px-6 text-lg opacity-90 rounded-md hover:bg-gray-700 ml-1" >
+      <button onClick={handlePlayError} className="hidden md:flex items-center bg-gray-600 text-white cursor-pointer py-2 px-6 text-lg opacity-90 rounded-md hover:bg-gray-700 ml-1" >
         <IoIosInformationCircleOutline size={24} className="md:mr-2" />MoreInfo
         </button>
          

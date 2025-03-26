@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+Body {
+    overflow-x: hidden;
+}
 @layer utilities {
 
     /* Chrome, Safari and Opera */

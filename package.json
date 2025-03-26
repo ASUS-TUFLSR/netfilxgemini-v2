@@ -15,6 +15,7 @@
     "@google/generative-ai": "^0.23.0",
     "@tailwindcss/vite": "^4.0.8",
     "firebase": "^11.3.1",
+    "lucide-react": "^0.484.0",
     "nodemon": "^3.1.9",
     "openai": "^4.86.1",
     "react": "^19.0.0",
