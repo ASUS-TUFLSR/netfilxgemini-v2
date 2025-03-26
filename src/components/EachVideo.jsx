@@ -14,7 +14,7 @@ const EachVideo = () => {
       <div className="flex">
         <Link
           to="/browse"
-          className="flex items-center px-6 py-3 font-semibold text-white bg-red-700 rounded-lg hover:bg-red-600 transition-all duration-200"
+          className="flex items-center px-2 py-2 md:px-6 md:py-3 font-semibold text-white bg-red-700 rounded-lg hover:bg-red-600 transition-all duration-200"
         >
           Go Back
         </Link>

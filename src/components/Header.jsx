@@ -71,14 +71,14 @@ const Header = () => {
      onClick={handleGptSearchClick}
     >
      {geminiShowValue ? (
-      <button>
+      <span>
         <Home className="size-5 text-white"/>
-      </button>
+      </span>
      ) : (
-      <button className="flex items-center gap-2 text-white cursor-pointer" >
+      <span className="flex items-center gap-2 text-white cursor-pointer" >
         <Search className="size-5 text-white"/>
                         <span className="sm:inline cursor-pointer" >Gemini</span>
-      </button>
+      </span>
      )}
     </button> 
 

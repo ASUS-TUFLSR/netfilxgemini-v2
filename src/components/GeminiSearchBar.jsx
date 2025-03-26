@@ -1,15 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import lang from '../utils/languageConstants';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_OPTIONS } from '../utils/constants';
 import { addGeminiMovieResult } from '../utils/geminiSearchSlice';
-import { Loader2 } from 'lucide-react'; // Lucide spinner icon
+import { Loader2, Search } from 'lucide-react';
 
 const GeminiSearchBar = () => {
-  const langKey = useSelector(store => store.config.lang);
+  const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
   const searchText = useRef(null);
-  const [loading, setLoading] = useState(false); // State for loading spinner
+  const [loading, setLoading] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const searchMovieTMDB = async (movieName) => {
     const data = await fetch(
@@ -21,7 +22,7 @@ const GeminiSearchBar = () => {
   };
 
   const handleGeminiSearchClick = async () => {
-    if (!searchText.current.value.trim()) return; // Prevent empty search
+    if (!searchText.current.value.trim()) return;
     setLoading(true);
 
     const geminiQuery =
@@ -55,26 +56,48 @@ const GeminiSearchBar = () => {
     }
   };
 
+
+
+
   return (
-    <div className="pt-[40%] md:pt-[10%] flex justify-center px-4">
-      <form
-        className="w-full md:w-2/3 bg-black flex items-center gap-2 p-4 rounded-lg shadow-lg"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <input
-          type="text"
-          ref={searchText}
-          className="flex-1 p-4 text-black bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-          placeholder={lang[langKey].gptSearchPlaceholder}
-        />
-        <button
-          className="flex items-center justify-center px-6 py-3 font-semibold text-white bg-red-700 rounded-lg hover:bg-red-600 transition-all duration-200"
-          onClick={handleGeminiSearchClick}
-          disabled={loading}
-        >
-          {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : lang[langKey].search}
-        </button>
-      </form>
+      <div className="flex justify-center items-center px-4 h-[40vh] md:h-[50vh]"> {/* Changed height */}
+      <div className="w-full max-w-2xl md:max-w-3xl space-y-4">
+  
+
+        <div className={`relative flex mt-30 items-center px-5 transition-all duration-300 ${
+          isFocused ? ' ring-red-500 shadow-lg' : 'shadow-md'
+        } bg-black/90 backdrop-blur-sm rounded-xl overflow-hidden mt-4`}>
+          <div className="absolute  text-gray-400">
+            <Search className="w-5 h-5" />
+          </div>
+          
+          <input
+            type="text"
+            ref={searchText}
+            className="flex-1 py-4 pl-12 pr-4 text-white bg-transparent placeholder-gray-400 focus:outline-none text-base md:text-lg"
+            placeholder={lang[langKey].gptSearchPlaceholder || "Search for movies like..."}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            onKeyDown={(e) => e.key === 'Enter' && handleGeminiSearchClick()}
+          />
+          
+          <button
+            className={`flex items-center justify-center px-5 md:px-6 h-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all ${
+              loading ? 'w-16' : 'w-24 md:w-28'
+            }`}
+            onClick={handleGeminiSearchClick}
+            disabled={loading}
+          >
+            {loading ? (
+              <Loader2 className="w-5 h-5 animate-spin text-white" />
+            ) : (
+              <span className="text-white font-medium">
+                {lang[langKey].search || "Search"}
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
