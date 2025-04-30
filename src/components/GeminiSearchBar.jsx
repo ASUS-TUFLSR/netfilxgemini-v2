@@ -9,7 +9,7 @@ const GeminiSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
   const searchText = useRef(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isFocused, setIsFocused] = useState(false);
 
   const searchMovieTMDB = async (movieName) => {
@@ -70,9 +70,9 @@ const GeminiSearchBar = () => {
                     />
             
              <button className='col-span-3 md:px-6 py-2 m-4 cursor-pointer  bg-red-700 rounded-xs text-white' 
-                     onClick={handleGeminiSearchClick}
+                     onClick={handleGeminiSearchClick} disabled={loading}
              >
-                 {lang[langKey].search}
+                 {loading ? <div className='w-6 h-6 border-t-2 ml-10 border-b-2  rounded-full animate-spin'></div> : lang[langKey].search}
              </button>
          </form>
      </div>
