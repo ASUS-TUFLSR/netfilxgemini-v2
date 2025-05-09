@@ -9,8 +9,7 @@ const GeminiSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
   const searchText = useRef(null);
-  const [loading, setLoading] = useState(true);
-  const [isFocused, setIsFocused] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const searchMovieTMDB = async (movieName) => {
     const data = await fetch(
