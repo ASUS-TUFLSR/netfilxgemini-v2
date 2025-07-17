@@ -1,4 +1,4 @@
-# React + Vite netflix-gemini
+# 🎬 React + Vite netflix-gemini
 
 - Created react app
 - configured tailwind css
@@ -82,12 +82,10 @@
 - search bar
 - movie suggestions
 
-# Tech Stack
-
-- HTML/CSS
-- TailwindCSS
-- JavaScript
-- React
-- FireBaseAuth
-- Redux/RTK
-- NodeJs
+ # 🛠 Tech Stack
+Frontend: React (Vite), Tailwind CSS
+Backend: Node.js (Express for Gemini API proxy)
+Authentication: Firebase Auth
+State Management: Redux Toolkit
+APIs: TMDB API, Google Gemini API
+Deployment: Vercel
