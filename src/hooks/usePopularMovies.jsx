@@ -1,31 +1,26 @@
 import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/constants";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopularMoives } from "../utils/movieSlice";
 
-
 const usePopularMovies = () => {
-
   const popularMovies = useSelector((store) => store?.movies?.popularMovies);
-
   const dispatch = useDispatch();
-  const getPopularMovies = async () => {
-   
-    const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", API_OPTIONS);
-    const json = await data.json();
-    dispatch(addPopularMoives(json.results));
 
-  }
- 
+  const getPopularMovies = async () => {
+    try {
+      const response = await fetch("https://backend-ez66.onrender.com/api/tmdb/popular"); // ✅ Replace with your backend URL (e.g., https://netflix-api.vercel.app/api/tmdb/popular)
+      const data = await response.json();
+      dispatch(addPopularMoives(data.results));
+    } catch (error) {
+      console.error("Error fetching popular movies:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      if(!popularMovies){
-        await getPopularMovies();
-      }
-    };
-    fetchData();
-  }, [popularMovies, dispatch])
-}
- 
+    if (!popularMovies) {
+      getPopularMovies();
+    }
+  }, [popularMovies, dispatch]);
+};
 
 export default usePopularMovies;

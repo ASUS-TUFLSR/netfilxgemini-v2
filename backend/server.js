@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import tmdbRoutes from "./routes/tmdbRoutes.js";
 
 
 dotenv.config();
@@ -14,6 +15,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use("/api/tmdb", tmdbRoutes);
+
 const PORT = process.env.PORT || 5001; 
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY); 
@@ -32,6 +35,10 @@ app.post("/api/generate", async (req, res) => {
          console.error("Gemini API Error:", error); 
         res.status(500).json({ error: error.message });
     }
+});
+
+app.get("/", (req, res) => {
+  res.send("TMDB + Gemini Proxy API is running...");
 });
 
 
