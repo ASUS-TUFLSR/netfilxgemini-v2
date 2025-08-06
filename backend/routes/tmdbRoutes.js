@@ -1,6 +1,5 @@
 // routes/tmdbRoutes.js
 import express from "express";
-import fetch from "node-fetch"; // if using Node.js < 18, install: npm i node-fetch
 import dotenv from "dotenv";
 dotenv.config();
 
