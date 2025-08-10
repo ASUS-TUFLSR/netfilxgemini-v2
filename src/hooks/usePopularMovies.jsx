@@ -9,7 +9,7 @@ const usePopularMovies = () => {
 
   const getPopularMovies = async () => {
     try {
-      const response = await fetch("http://localhost:5173/api/tmdb/popular", API_OPTIONS); // ✅ Replace with your backend URL (e.g., https://netflix-api.vercel.app/api/tmdb/popular)
+      const response = await fetch("https://backend-4i4w.onrender.com/api/tmdb/popular"); // ✅ Replace with your backend URL (e.g., https://netflix-api.vercel.app/api/tmdb/popular)
       const data = await response.json();
       dispatch(addPopularMoives(data.results));
     } catch (error) {
