@@ -31,7 +31,7 @@ const GeminiSearchBar = () => {
 
     const BACKEND_URL =
       process.env.NODE_ENV === 'production'
-        ? 'https://backend-ez66.onrender.com'
+        ? 'https://backend-8im3.onrender.com'
         : 'http://localhost:5001';
 
     try {
