@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import tmdbRoutes from "./routes/tmdbRoutes.js";
 
 
 dotenv.config();
@@ -15,7 +14,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use("/api/tmdb", tmdbRoutes);
 
 const PORT = process.env.PORT || 5001; 
 
@@ -24,8 +22,6 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 app.post("/api/generate", async (req, res) => {
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", apiVersion: "v1" });
-
-
         const result = await model.generateContent(req.body.prompt);
         const response = await result.response;
         const text = response.text(); 
@@ -38,8 +34,10 @@ app.post("/api/generate", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("TMDB + Gemini Proxy API is running...");
+  res.send("Netflix AI...");
 });
+
+
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
